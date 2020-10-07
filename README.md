@@ -1,24 +1,56 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------  |
+| name             | string  | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| family-name      | string  | null: false |
+| first-name       | string  | null: false |
+| family-name-kana | string  | null: false |
+| first-name-kana  | string  | null: false |
+| birth-year       | int     | null: false |
+| birth-month      | int     | null: false |
+| birth-day        | int     | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :purchases
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| image               | string     | null: false                    |
+| product-name        | string     | null: false                    |
+| product-discription | text       | null: false                    |
+| product-category    | string     | null: false                    |
+| product-status      | string     | null: false                    |
+| delivery-burden     | int        | null: false                    |
+| shipping-area       | string     | null: false                    |
+| days-ship           | int        | null: false                    |
+| price               | int        | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :purchase
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchases テーブル
 
-* Deployment instructions
+| Column           | Type       | Options                        |
+| ---------------- | -------    | ------------------------------ |
+| purchase_history | boolean    | null: false                    |
+| item             | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+

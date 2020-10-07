@@ -55,13 +55,13 @@
 
 | Column         | Type       | Options                        |
 | ---------------| ---------- | ------------------------------ |
-| postal-code    | int        | null: false                    |
-| prefecture     | string     | null: false                    |
+| postal-code    | string     | null: false                    |
+| prefecture_id  | int        | null: false                    |
 | municipality   | string     | null: false                    |
-| address        | text       | null: false                    |
+| address        | string     | null: false                    |
 | building-name  | string     |                                |
 | phone-number   | string     | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| purchase       | references | null: false, foreign_key: true |
 
 ### Association
 

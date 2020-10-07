@@ -23,10 +23,10 @@
 
 | Column               | Type       | Options                        |
 | -------------------  | ---------- | ------------------------------ |
-| product_name         | string     | null: false                    |
-| product_discription  | text       | null: false                    |
-| product_category_id  | integer    | null: false                    |
-| product_status_id    | integer    | null: false                    |
+| name                 | string     | null: false                    |
+| discription          | text       | null: false                    |
+| category_id          | integer    | null: false                    |
+| status_id            | integer    | null: false                    |
 | delivery_burden_id   | integer    | null: false                    |
 | shipping_area_id     | integer    | null: false                    |
 | days_ship_id         | integer    | null: false                    |

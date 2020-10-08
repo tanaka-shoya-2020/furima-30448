@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :name, :family_name, :first_name, :family_name_kana, :first_name_kana,  presence: true
   validates :birthday, presence: true
+
+  
 end

@@ -50,4 +50,3 @@ class ShippingArea < ActiveHash::Base
     { id: 48, name: '沖縄県' }
   ]
 end
-

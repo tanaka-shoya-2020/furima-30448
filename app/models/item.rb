@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, :image, :description, :category_id, :status_id, 
+  validates :name, :image, :description, :category_id, :status_id,
             :delivery_burden_id, :shipping_area_id,
             :days_ship_id, :user, presence: true
 
@@ -19,7 +19,6 @@ class Item < ApplicationRecord
 
   with_options presence: true, format: { with: /\A[0-9]+\Z/ } do
     validates :price, numericality: { greater_than_or_equal_to: 300,
-                                      less_than_or_equal_to: 9999999 }
+                                      less_than_or_equal_to: 9_999_999 }
   end
-
 end

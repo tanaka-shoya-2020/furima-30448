@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :name,   presence: true
   validates :birthday, presence: true
 
-  #半角英小文字大文字数字をそれぞれ1種類以上含む6文字以上の正規表現
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{6,}+\z/.freeze
+  #半角英数字をそれぞれ1種類以上含む6文字以上の正規表現
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/i.freeze
   
   validates_format_of :password, with: PASSWORD_REGEX
   

@@ -15,8 +15,8 @@ end
       end
 
       it "passwordが6文字以上の英数字であれば登録できる" do
-        @user.password = "Test1t"
-        @user.password_confirmation = "Test1t"
+        @user.password = "test1t"
+        @user.password_confirmation = "test1t"
         expect(@user).to be_valid
       end
 

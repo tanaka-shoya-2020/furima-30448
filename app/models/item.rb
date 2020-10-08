@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  extend Active::Associations::ActiveRecordExtensions
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :status
   belongs_to_active_hash :delivery_burden
@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :name, :discription, :category_id, :status_id, 
+  validates :name, :description, :category_id, :status_id, 
             :delivery_burden_id, :shipping_area_id,
             :days_ship_id, :price, :user, presence: true
 

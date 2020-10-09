@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  # 後に編集/削除をする際に使用
-  # before_action :move_to_show, only: [:edit,:update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit, :update]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -24,6 +23,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
@@ -32,11 +42,11 @@ class ItemsController < ApplicationController
                                  :price, :image).merge(user_id: current_user.id)
   end
 
-  # 後に商品の編集/削除の動作をする際に使用します
-  # def move_to_show
-  #   @item = Item.find(params[:id])
-  #   unless user_signed_in? && current_user == @item.user
-  #     redirect_to show
-  #   end
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path unless user_signed_in? && current_user == @item.user
+  end
 end

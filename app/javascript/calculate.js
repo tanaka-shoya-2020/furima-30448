@@ -11,4 +11,3 @@ function calculate (){
 }
 
 setInterval(calculate, 1000);
-// window.addEventListener('load', calculate);

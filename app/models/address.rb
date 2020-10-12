@@ -3,5 +3,4 @@ class Address < ApplicationRecord
   belongs_to_active_hash :shipping_area
 
   belongs_to :purchase
-
 end

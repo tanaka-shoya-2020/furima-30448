@@ -31,15 +31,15 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       it '郵便番号にハイフン(-)がついていなかった時' do
-        @purchase_address.postal_code = 1231234
+        @purchase_address.postal_code = 1_231_234
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Postal code is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
       end
 
       it '郵便番号に全角数字が使われていた時' do
-        @purchase_address.postal_code = "１００-１０００"
+        @purchase_address.postal_code = '１００-１０００'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Postal code is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
       end
 
       it '都道府県が空の時' do
@@ -67,15 +67,15 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       it '電話番号にハイフン(-)がついていた時' do
-        @purchase_address.phone_number = "0120-22-1038"
+        @purchase_address.phone_number = '0120-22-1038'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
 
       it '電話番号が全角数字で書かれていた時' do
-        @purchase_address.phone_number = "１００００１００００"
+        @purchase_address.phone_number = '１００００１００００'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end

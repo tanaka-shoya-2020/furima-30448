@@ -1,4 +1,4 @@
-if(document.URL.match(/items/) && document.URL.match(/new/)){
+if(document.URL.match(/items/) && document.URL.match(/new/) || document.URL.match(/items/)){
 function calculate (){
   const itemPrice = document.getElementById("item-price");
   itemPrice.addEventListener("keyup", () => {
